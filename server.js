@@ -6,13 +6,12 @@ var bodyParser = require("body-parser");
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
-// app.set('view engine', 'html');
 
 // Initial get request to the database that returns all the data and transfer it to scope variable
 app.get('/fredpost', function(req, res){
-	db.fredpost.find(function(err, docs){
-		res.json(docs);
-	});
+		db.fredpost.find(function(err, docs){
+			res.json(docs);
+		});
 });
 
 // Inserting a new post in the database
@@ -32,11 +31,23 @@ app.put('/fredpost/:id', function(req, res){
 		});
 });
 
-app.get('/fredpost/:id',function(req, res){
+// Updating the data on the Posts page
+app.get('/fredpost/posts/:id', function(req, res){
 	var id = req.params.id;
-	console.log(id);
-	res.send("Recieved");
-	res.render("/public2/posts.html");
+	db.fredpost.findOne({_id: mongojs.ObjectId(id)}, function(err, doc){
+		res.json(doc);
+	});
+});
+
+
+// Updating the Data in the database that has been changed by Posting a comment or upvoting a comment
+app.put('/fredpost/posts/:id', function(req, res){
+	var id = req.params.id;
+	db.fredpost.findAndModify({query : {_id: mongojs.ObjectId(id)},
+		update : {$set: {comments: req.body.comments}},
+		new: true}, function(err, doc){
+			res.json(doc);
+		});
 });
 
 app.listen(3000);
