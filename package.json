@@ -1,0 +1,17 @@
+{
+  "name": "freddit",
+  "version": "1.0.0",
+  "description": "A news based app that allows us to post something, upvote it and add comment on any post",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Zlash",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongojs": "^2.4.0"
+  }
+}
