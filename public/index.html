@@ -21,49 +21,54 @@
 	            <h1> Freddit News </h1>
 		    </div>
 
-        <div ng-repeat="x in posts | orderBy:'-upvotes'">
-            
-            <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(x)"> </span>
-            
-            {{x.upvotes}}
-            
-            <span style="font-size:30px; margin-left:10px;">
-                
-                <a ng-show="x.link" href="{{x.link}}">
-                  {{x.title}}
-                </a>
-                
-                <span ng-hide="x.link">
-                    {{x.title}}
-                </span>
-                
-                <span style="font-size:15px;">
-                  <a href="#/posts/{{$index}}"> Comments </a>
-                </span>
-            
-            </span>
-          
-        </div>
+	        <div ng-repeat="x in posts | orderBy:'-upvotes'">
+	            
+	            <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(x)"> </span>
+	            
+	            {{x.upvotes}}
+	            
+	            <span style="font-size:30px; margin-left:10px;">
+	                
+	                <a ng-show="x.link" href="{{x.link}}">
+	                  {{x.title}}
+	                </a>
+	                
+	                <span ng-hide="x.link">
+	                    {{x.title}}
+	                </span>
+	                
+	                <span style="font-size:15px;">
+	                  <!-- <a href="/public2/posts.html/{{x._id}}"> Comments </a> -->
+	                  <a ng-click="postRoute(x)" style="cursor: pointer;"> Comments </a>
+	                </span>
+	            
+	            </span>
+	          
+	        </div>
 
-        <form ng-submit="addPost()" style="margin-top:30px;">
-            
-            <h3> Add a new post </h3>
+	        <form ng-submit="addPost()" style="margin-top:30px;">
+	            
+	            <h3> Add a new post </h3>
 
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Title" ng-model="post.title"></input>
-            </div>
-            
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Link" ng-model="post.link"></input>
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Post</button>
-        
-        </form>
+	            <div class="form-group">
+	                <input type="text" class="form-control" placeholder="Title" ng-model="post.title"></input>
+	            </div>
+	            
+	            <div class="form-group">
+	                <input type="text" class="form-control" placeholder="Link" ng-model="post.link"></input>
+	            </div>
+	            
+	            <button type="submit" class="btn btn-primary">Post</button>
+	        
+	        </form>
         
         </div>
     
     </div>
+
+    <script type="text/ng-template" id="/home.html">
+    	
+    </script>
 
 </body>
 </html>
