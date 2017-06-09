@@ -1,8 +1,9 @@
-# ContactListApp
+# Freddit
 
-A simple Contact list app to get around Mean Stack development environment. The app essentially stores the contact that we add in 
-mongo database and queries it back for the display. The app gives functionality to remove or edit entries from the database and update the details
-on the display.
+Why Freddit? Why this name?
+--> Why not :p , I know the name contains "reddit" and this looks nowhere similar to it, but well freedom to name my creation!
+* Its a simple add a Post and Comment on posted stuff based app. Also provides the functionality of upvoting a Post. The app then instantly sorts the Posts based on the upvotes i.e Posts are displayed in descending order of their upvotes. 
+* Clicking on the 'Comments' text will route to the comments that were posted for that particular post. You can add a new comment from this page and you can also upvote any comment that are there. Again the comments get sorted in descending order of their upvotes.
 
 ### Prerequisites
 
@@ -16,10 +17,9 @@ your system.
 ```
   npm install
 ```
-*This should install all the required node modules you'll need to run the app.
+* This should install all the required node modules you'll need to run the app.
 
-2. You can either use the default location to create the database that'd be C:\data\db or you can locally create one in your current 
-directory by running the command...
+2. You can either use the default location to create the database that'd be C:\data\db or you can locally create one in your current directory by running the command...
 ```
 mkdir data
 ```
@@ -29,8 +29,8 @@ mkdir data
 ```
 mongod
 ```
-
 Or if you created data directory in the current work environment, then run..
+
 ```
 mongod --dbpath "Path to your data directory"
 ```
