@@ -6,6 +6,7 @@ var bodyParser = require("body-parser");
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
+// app.set('view engine', 'html');
 
 // Initial get request to the database that returns all the data and transfer it to scope variable
 app.get('/fredpost', function(req, res){
@@ -29,6 +30,13 @@ app.put('/fredpost/:id', function(req, res){
 		new: true}, function(err, doc){
 			res.json(doc);
 		});
+});
+
+app.get('/fredpost/:id',function(req, res){
+	var id = req.params.id;
+	console.log(id);
+	res.send("Recieved");
+	res.render("/public2/posts.html");
 });
 
 app.listen(3000);
